@@ -4,20 +4,20 @@
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       i18n:domain="collective.plonetruegallery">
 
-<body tal:define="is_set view/is_set">
+<body tal:define="is_set view/is_set ">
 
      <p tal:condition="not:is_set" i18n:translate="">
         Please add the path to the gallery
      </p>
     
-      <div>Need to get the gallery from the settings, maybe it is possible to check if a  folder has the gallery view enabled. Name your gallery tg for now</div>
+      <div>Need to get the gallery from the settings. Name your gallery tg for now</div>
 
-      <div class="ptgtile" 
-           tal:content="structure context/tg/@@placegalleryview" 
-           tal:condition="is_set">
+ 
+     <div tal:content="structure context/tg/@@placegalleryview"/>
+    <div tal:content="is_set"/>
            
-     <p tal:content="view/gallery_path" />
-           
+ 
     </body>
     
 </html>
+ 

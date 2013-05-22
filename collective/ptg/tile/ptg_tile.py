@@ -55,26 +55,30 @@ class PtgTile(PersistentCoverTile):
         return self.data['gallerypath']
         
     def truegallery_path(self):
-		path = self.data['gallerypath']
-		path = str(path)
-		if path.startswith('/'):
-			path = path[1:]
-		return portal.restrictedTraverse(path, default=False)
-		#return path
+	    path = self.data['gallerypath']
+	    path = str(path) + '/@@placegalleryview'
+	    if path.startswith('/'):
+	        path = path[1:]
+	    return portal.restrictedTraverse(path, default=False)
 			    
-    @property
-    @memoize
-    def gallery_path(self):
-		context=self.context
+    #@property
+    #@memoize
+    #def gallery_path(self):
+		#context=self.context
 		
-		try:
-			portal_state = getMultiAdapter((self.context, self.request), name=u'plone_portal_state')
-			portal = portal_state.portal()
-			path = str(self.data['gallerypath'])
-			if path.startswith('/'):
-				path = path[1:]
+		#try:
+			#portal_state = getMultiAdapter((self.context, self.request), name=u'plone_portal_state')
+			#portal = portal_state.portal()
+			#path = str(self.data['gallerypath'])
+			#if path.startswith('/'):
+				#path = path[1:]
 				
-			return portal.restrictedTraverse(path, default=False)
-		except:
-			return False
+			#return portal.restrictedTraverse(path, default=False)
+		#except:
+			#return False
 			
+    #def gallery_path(self):		
+	    #return context.restrictedTraverse(is_set.rstrip('/') + '/@@placegalleryview', None)
+	    #return "context/tg/@@placegalleryview"
+	
+	
