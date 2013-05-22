@@ -4,21 +4,18 @@
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       i18n:domain="collective.plonetruegallery">
 
-<body tal:define="is_set view/is_set ">
+  <body tal:define="is_set view/is_set ">
 
      <p tal:condition="not:is_set" i18n:translate="">
         Please add the path to the gallery
      </p>
     
-      <div>Need to get the gallery from the settings. Name your gallery tg for now</div>
-
+     <div class="truegallerytile" 
+          tal:define="truegallery view/sliderpath"
+          tal:content="structure truegallery/@@placegalleryview"
+          tal:content="is_set"/>        
  
-     <div tal:content="structure context/tg/@@placegalleryview"/>
-          <div tal:content="structure view/truegallery_path"/>
-    <div tal:content="is_set"/>
-           
- 
-    </body>
+  </body>
     
 </html>
  
