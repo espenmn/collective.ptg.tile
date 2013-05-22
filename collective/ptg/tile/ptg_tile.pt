@@ -16,6 +16,20 @@
                             tal:define="truegallery view/gallerypath"
                             tal:content="structure truegallery/@@placegalleryview"
                             />
+          <tal:title define="htmltag python:field.get('htmltag', 'h1')"
+                     condition="python:field['id'] == 'title'">
+            <h1 tal:condition="python:htmltag == 'h1'"
+                tal:content="python:field['content']" />
+            <h2 tal:condition="python:htmltag == 'h2'"
+                tal:content="python:field['content']" />
+            <h3 tal:condition="python:htmltag == 'h3'"
+                tal:content="python:field['content']" />
+          </tal:title>
+                
+          <p class="description"
+               tal:condition="python:field['id'] == 'description'"
+               tal:replace="structure python:field['content']">description</p>
+
 
           <tal:last condition="repeat/field/end">
             <div class="visualClear"><!-- --></div>
