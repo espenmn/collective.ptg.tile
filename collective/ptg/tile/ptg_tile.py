@@ -49,7 +49,7 @@ class PtgTile(PersistentCoverTile):
 
     index = ViewPageTemplateFile('ptg_tile.pt')
 
-    is_configurable = False
+    is_configurable = True
 
     def is_set(self):
         return self.data['gallerypath']

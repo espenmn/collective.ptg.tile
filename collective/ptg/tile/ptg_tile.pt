@@ -7,11 +7,21 @@
   <body tal:define="is_set view/is_set ">
      <p tal:condition="not:is_set" i18n:translate="">
         Please add the path to the gallery
-     </p>
-     <div class="truegallerytile" 
-          tal:define="truegallery view/gallerypath"
-          tal:content="structure truegallery/@@placegalleryview"
-          tal:condition="is_set"/> 
+     </p> 
+     <div tal:condition="is_set">
+        <tal:fields repeat="field view/get_configured_fields">
+
+          <div tal:condition="python:field['id'] == 'gallerypath'"
+                            class="truegallerytile" 
+                            tal:define="truegallery view/gallerypath"
+                            tal:content="structure truegallery/@@placegalleryview"
+                            />
+
+          <tal:last condition="repeat/field/end">
+            <div class="visualClear"><!-- --></div>
+          </tal:last>
+        </tal:fields>
+      </div>
   </body>  
 </html>
  
