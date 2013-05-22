@@ -54,7 +54,7 @@ class PtgTile(PersistentCoverTile):
     def is_set(self):
         return self.data['gallerypath']
         
-    def sliderpath(self):
+    def gallerypath(self):
     	portal_state = getMultiAdapter((self.context, self.request), name=u'plone_portal_state')
     	portal = portal_state.portal()
     	path = str(self.data['gallerypath'])

@@ -5,17 +5,13 @@
       i18n:domain="collective.plonetruegallery">
 
   <body tal:define="is_set view/is_set ">
-
      <p tal:condition="not:is_set" i18n:translate="">
         Please add the path to the gallery
      </p>
-    
      <div class="truegallerytile" 
-          tal:define="truegallery view/sliderpath"
+          tal:define="truegallery view/gallerypath"
           tal:content="structure truegallery/@@placegalleryview"
-          tal:content="is_set"/>        
- 
-  </body>
-    
+          tal:condition="is_set"/> 
+  </body>  
 </html>
  
