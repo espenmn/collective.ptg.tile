@@ -20,7 +20,7 @@ setup(name='collective.ptg.tile',
       url='https://github.com/collective/collective.ptg.tile',
       license='GPL',
       packages=find_packages(exclude=['ez_setup']),
-      namespace_packages=['collective', 'collective.ptg.tile'],
+      namespace_packages=['collective', 'collective.ptg'],
       include_package_data=True,
       zip_safe=False,
       install_requires=[

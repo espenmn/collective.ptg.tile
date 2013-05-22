@@ -18,8 +18,10 @@ from plone.tiles.interfaces import ITileDataManager
 from plone.uuid.interfaces import IUUID
 from zope import schema
 
-#from zope.component import queryMultiAdapter
-#from zope.component import getMultiAdapter
+from plone.memoize.instance import memoize
+
+from zope.component import getMultiAdapter
+
 
 class IPtgTile(IPersistentCoverTile):
     """  settings for gallery  tile """
@@ -59,30 +61,20 @@ class PtgTile(PersistentCoverTile):
 			path = path[1:]
 		return portal.restrictedTraverse(path, default=False)
 		#return path
+			    
+    @property
+    @memoize
+    def gallery_path(self):
+		context=self.context
+		
+		try:
+			portal_state = getMultiAdapter((self.context, self.request), name=u'plone_portal_state')
+			portal = portal_state.portal()
+			path = str(self.data['gallerypath'])
+			if path.startswith('/'):
+				path = path[1:]
+				
+			return portal.restrictedTraverse(path, default=False)
+		except:
+			return False
 			
-
-    def populate_with_object(self, obj):
-        # check permissions
-        super(PtgTile, self).populate_with_object(obj)
-
-        data = {'testingsomething'}
-        obj = aq_inner(obj)
-        
-        data_mgr = ITileDataManager(self)
-        data_mgr.set(data)
-        tile_storage = AnnotationStorage(self)
-        obj_storage = BaseAnnotationStorage(obj)
-        for k, v in obj_storage.items():
-            tile_storage.storage[k] = v
-            tile_storage.storage[k]['modified'] = '%f' % time.time()
-            scale_data = obj_storage.storage[k]['data'].open().read()
-            tile_storage.storage[k]['data'] = 'somedata'
-
-    def accepted_ct(self):
-        """ Return a list of content types accepted.
-            Dont think we neeed this for truegallery,
-            unless there is a way to search for folders with a certain view set 
-            on them
-        """
-        valid_ct = ['Galleryfolder', 'Folder']
-        return valid_ct
