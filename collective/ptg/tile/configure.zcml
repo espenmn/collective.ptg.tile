@@ -11,7 +11,7 @@
  <plone:tile
       name="collective.ptg.tile"
       title="Truegallery tile"
-      icon="++resource++collective.cover/tile-basic.png"
+      icon="++resource++collective.plonetruegallery/tile.png"
       description="A tile containing a (collective.plonerue)gallery "
       add_permission="cmf.ModifyPortalContent"
       schema=".ptg_tile.IPtgTile"
