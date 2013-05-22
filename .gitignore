@@ -1,0 +1,7 @@
+
+.DS_Store
+
+collective.ptgtile.egg-info
+*.pyc
+
+collective.ptg.tile.egg-info/

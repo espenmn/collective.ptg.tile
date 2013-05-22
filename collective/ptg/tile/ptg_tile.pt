@@ -1,0 +1,24 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="collective.cover">
+
+<body tal:define="is_set view/is_set">
+
+     <p tal:condition="not:is_set" i18n:translate="">
+        Please add the path to the gallery
+     </p>
+    
+      <div>Need to get the gallery from the settings, maybe it is possible to check if a  folder has the gallery view enabled. Name your gallery tg for now</div>
+
+      <div class="ptgtile" 
+           tal:content="structure context/tg/@@placegalleryview" 
+           tal:condition="is_set">
+           
+     <div class="ptgtile" 
+           tal:content="structure view/truegallery_path/@@placegalleryview" 
+           tal:condition="is_set">
+    </body>
+    
+</html>
