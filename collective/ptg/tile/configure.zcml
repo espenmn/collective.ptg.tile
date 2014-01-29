@@ -10,8 +10,8 @@
     
  <plone:tile
       name="collective.ptg.tile"
-      title="Truegallery tile"
-      icon="++resource++collective.plonetruegallery/tile.png"
+      title="Truegallery"
+      icon="++resource++ptg_tile.png"
       description="A tile containing a (collective.plonerue)gallery "
       add_permission="cmf.ModifyPortalContent"
       schema=".ptg_tile.IPtgTile"
@@ -20,7 +20,11 @@
       for="*"
       />
 
-   
+   a=".ptg_tile.IPtgTile"
+      class=".ptg_tile.PtgTile"
+      permission="zope2.View"
+      for="*"
+      />
   <!-- Register the installation GenericSetup extension profile -->
   <genericsetup:registerProfile
       name="default"
@@ -29,5 +33,8 @@
       description="Adds a tile to display a gallery (collective.plonetruegallery)"
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
+
+  <!-- Register the icons -->     
+  <browser:resource name="ptg_tile.png" file="files/ptg_tile.png" />
       
 </configure>
