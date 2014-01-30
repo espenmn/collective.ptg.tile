@@ -30,7 +30,6 @@
                tal:condition="python:field['id'] == 'description'"
                tal:replace="structure python:field['content']">description</p>
 
-
           <tal:last condition="repeat/field/end">
             <div class="visualClear"><!-- --></div>
           </tal:last>

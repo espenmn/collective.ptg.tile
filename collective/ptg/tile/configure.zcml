@@ -20,11 +20,6 @@
       for="*"
       />
 
-   a=".ptg_tile.IPtgTile"
-      class=".ptg_tile.PtgTile"
-      permission="zope2.View"
-      for="*"
-      />
   <!-- Register the installation GenericSetup extension profile -->
   <genericsetup:registerProfile
       name="default"
