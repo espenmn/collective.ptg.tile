@@ -20,7 +20,7 @@ from zope import schema
 
 from zope.component import getMultiAdapter
 
-#from plone.memoize.instance import memoize
+from plone.memoize.instance import memoize
  
 
 class IPtgTile(IPersistentCoverTile):
@@ -36,7 +36,7 @@ class IPtgTile(IPersistentCoverTile):
         required=False,
     )
     
-   gallerypath = schema.Choice(
+    gallerypath = schema.Choice(
         title=_(u"label_width_title_gallerytile_setting", default=u"Gallery"),
         description=_(u"label_width_description_gallerytile_setting", 
         default=u"The path to the gallery you want to  show."),
@@ -44,11 +44,8 @@ class IPtgTile(IPersistentCoverTile):
         )
 
 class PtgTile(PersistentCoverTile):
-
     implements(IPtgTile)
-
     index = ViewPageTemplateFile('ptg_tile.pt')
-
     is_configurable = True
 
     def is_set(self):
