@@ -31,5 +31,13 @@
 
   <!-- Register the icons -->     
   <browser:resource name="ptg_tile.png" file="files/ptg_tile.png" />
+  
+  <!-- The vocabulary -->    
+  <utility
+    component=".vocabularies.GalleryVocabulary"
+    name="collective.ptg.tile.GalleryVocabulary" />
       
 </configure>
+
+
+ 

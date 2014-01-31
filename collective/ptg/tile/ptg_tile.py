@@ -18,10 +18,10 @@ from plone.tiles.interfaces import ITileDataManager
 from plone.uuid.interfaces import IUUID
 from zope import schema
 
-from plone.memoize.instance import memoize
-
 from zope.component import getMultiAdapter
 
+#from plone.memoize.instance import memoize
+ 
 
 class IPtgTile(IPersistentCoverTile):
     """  settings for gallery  tile """
@@ -36,12 +36,12 @@ class IPtgTile(IPersistentCoverTile):
         required=False,
     )
     
-    gallerypath = schema.TextLine(
-        title=_(u"label_width_title_gallerytile_setting", default=u"Which Gallery"),
+   gallerypath = schema.Choice(
+        title=_(u"label_width_title_gallerytile_setting", default=u"Gallery"),
         description=_(u"label_width_description_gallerytile_setting", 
         default=u"The path to the gallery you want to  show."),
-        default=u'my/path',
-        required=True)
+    	vocabulary='collective.ptg.tile.GalleryVocabulary',
+        )
 
 class PtgTile(PersistentCoverTile):
 
