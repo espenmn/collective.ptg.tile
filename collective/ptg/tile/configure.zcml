@@ -12,7 +12,7 @@
       name="collective.ptg.tile"
       title="Truegallery"
       icon="++resource++ptg_tile.png"
-      description="A tile containing a (collective.plonerue)gallery "
+      description="A tile containing a (collective.plonerue) gallery "
       add_permission="cmf.ModifyPortalContent"
       schema=".ptg_tile.IPtgTile"
       class=".ptg_tile.PtgTile"
