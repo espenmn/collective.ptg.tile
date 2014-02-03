@@ -8,19 +8,18 @@ try:
 except ImportError:
     from zope.component.hooks import getSite
 
-#from zope.i18nmessageid import MessageFactory
-
-#_ = MessageFactory('collective.ptg.tile')
+from collective.plonetruegallery.interfaces import IGallery
 
 
 def GalleryVocabulary(context):
     site = getSite()
-    catalog = site.portal_catalog    
-    results =  catalog.searchResults(getLayout='galleryview')
+    catalog = site.portal_catalog
+    results = catalog(object_provides=IGallery.__identifier__)
     galleries= []
-   
+      
     for result in results:
-   		galleries.append(result.getPath())
+        if str(result.getObject().getLayout()) == 'galleryview':
+   			galleries.append(result.getPath())
    		
     terms = [ SimpleTerm(value=pair, token=pair, title=pair) for pair in galleries ]  
     return SimpleVocabulary(terms)
