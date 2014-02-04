@@ -28,6 +28,7 @@ setup(name='collective.ptg.tile',
           'collective.plonetruegallery',
           'collective.cover' ,
           'zope.i18nmessageid',
+          'plone.api',
       ],
       entry_points="""
       # -*- Entry points: -*-

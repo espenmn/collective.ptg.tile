@@ -3,17 +3,14 @@ from zope.interface import directlyProvides
 from zope.schema.vocabulary import SimpleVocabulary, SimpleTerm
 from zope.schema.interfaces import IVocabularyFactory
 
-try:
-    from zope.app.component.hooks import getSite
-except ImportError:
-    from zope.component.hooks import getSite
+from plone import api 
 
 from collective.plonetruegallery.interfaces import IGallery
 
 
 def GalleryVocabulary(context):
-    site = getSite()
-    catalog = site.portal_catalog
+    portal = api.portal.get() 
+    catalog = portal.portal_catalog
     results = catalog(object_provides=IGallery.__identifier__)
     galleries= []
       

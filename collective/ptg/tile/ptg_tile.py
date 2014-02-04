@@ -18,7 +18,8 @@ from plone.tiles.interfaces import ITileDataManager
 from plone.uuid.interfaces import IUUID
 from zope import schema
 
-from zope.component import getMultiAdapter
+#from zope.component import getMultiAdapter
+from plone import api 
 
 from plone.memoize.instance import memoize
  
@@ -52,8 +53,7 @@ class PtgTile(PersistentCoverTile):
         return self.data['gallerypath']
         
     def gallerypath(self):
-    	portal_state = getMultiAdapter((self.context, self.request), name=u'plone_portal_state')
-    	portal = portal_state.portal()
+    	portal = api.portal.get() 
     	path = str(self.data['gallerypath'])
     	if path.startswith('/'):
     	    path = path[1:]
