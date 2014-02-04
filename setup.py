@@ -1,11 +1,11 @@
 from setuptools import setup, find_packages
 import os
 
-version = '0.1'
+version = '0.1b1'
 
 setup(name='collective.ptg.tile',
       version=version,
-      description="Trueghallery tile for collective.cover",
+      description="Truegallery tile for collective.cover",
       long_description=open("README.rst").read() + "\n" +
                        open(os.path.join("docs", "HISTORY.txt")).read(),
       # Get more strings from

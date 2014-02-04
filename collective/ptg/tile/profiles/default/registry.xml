@@ -6,5 +6,10 @@
         <element>collective.ptg.tile</element>
     </value>
    </record>
+  <record name="collective.cover.controlpanel.ICoverSettings.available_tiles" field="available_tiles">
+    <value purge="false">
+      <element>collective.ptg.tile</element>
+    </value>
+  </record> 
   
 </registry>
